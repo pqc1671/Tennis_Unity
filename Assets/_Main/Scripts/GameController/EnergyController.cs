@@ -16,11 +16,12 @@ public class EnergyController : SingletonPersistent<EnergyController>
     }
     private void Start()
     {
-        Energy = PlayerPrefs.GetInt("Energy");
+        Energy = PlayerPrefs.GetInt("Energy", Energy);
         FindObjectsOfType<EnergyText>().ToList().ForEach(i => i.SetText(Energy.ToString()));
     }
     public void UseEnergy()
     {
+        Energy = PlayerPrefs.GetInt("Energy", Energy);
         Energy -= 1;
         PlayerPrefs.SetInt("Energy", Energy);
         FindObjectsOfType<EnergyText>().ToList().ForEach(i => i.SetText(Energy.ToString()));

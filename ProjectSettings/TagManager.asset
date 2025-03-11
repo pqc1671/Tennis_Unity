@@ -12,6 +12,7 @@ TagManager:
   - Miss
   - x3
   - gioihandichuyen
+  - teleport
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - HandPlayer
   - gioihandichuyen
   - vot
-  - 
+  - OVRUI
   - 
   - 
   - 

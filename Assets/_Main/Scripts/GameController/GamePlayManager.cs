@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,10 @@ public class GamePlayManager : Singleton<GamePlayManager>
     [SerializeField] private GameObject gameEnd, gameWin,khongduenergy;
 
     public bool IsGameStart => isGameStart;
+    public bool IsGameEnd => isGameEnd;
+
+    public event Action OnGameDone;
+    public event Action OnGamePlay;
 
     [SerializeField] MachineShootBall machineShootBall;
 
@@ -43,6 +48,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
     private void StartGame()
     {
+        OnGamePlay?.Invoke();
         isGameStart = true;
         StartCoroutine(CountDownTime());
         ShootBall();
@@ -76,6 +82,8 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
     public void GameEnd()
     {
+        OnGameDone?.Invoke();
+        Debug.Log("gameend");
         gameEnd.SetActive(true);
         isGameStart = false;
         isGameEnd = true;
@@ -83,6 +91,9 @@ public class GamePlayManager : Singleton<GamePlayManager>
     public void GameWin()
     {
         LevelUp();
+        Debug.Log("gamewin");
+
+        OnGameDone?.Invoke();
         gameWin.SetActive(true);
         isGameStart = false;
         isGameEnd = true;
@@ -104,7 +115,8 @@ public class GamePlayManager : Singleton<GamePlayManager>
     }
     public void Restart()
     {
-        if(EnergyController.Instance.Energy > 0)
+        int energy = PlayerPrefs.GetInt("Energy");
+        if (energy >0)
         {
             EnergyController.Instance.UseEnergy();
             UnityEngine.SceneManagement.SceneManager.LoadScene("Tennis");
