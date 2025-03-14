@@ -324,6 +324,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 115865680}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &115865683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4446,6 +4458,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1638254647}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1638254650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4586,7 +4610,7 @@ MonoBehaviour:
   gameWin: {fileID: 776446848}
   khongduenergy: {fileID: 985260504}
   machineShootBall: {fileID: 8392154790489698885}
-  lv: 1
+  lv: 0
 --- !u!4 &1655277980
 Transform:
   m_ObjectHideFlags: 0
@@ -6201,8 +6225,6 @@ GameObject:
   - component: {fileID: 5816500290899042789}
   - component: {fileID: 8094081170056657439}
   - component: {fileID: 8094081170056657440}
-  - component: {fileID: 8094081170056657443}
-  - component: {fileID: 8094081170056657442}
   - component: {fileID: 8094081170056657441}
   - component: {fileID: 8094081170056657444}
   - component: {fileID: 8094081170056657445}
@@ -6461,50 +6483,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.26027763, y: 0.3316903, z: 0.07526493}
-  m_Center: {x: 0, y: 0.4376465, z: -0.0016217232}
---- !u!65 &8094081170056657442
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2551159701662017586}
-  m_Material: {fileID: 13400000, guid: 04507828b00407b48841fdc1c6917004, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.26009238, y: 0.3319676, z: 0.07544613}
-  m_Center: {x: 0.00041154027, y: 0.43734932, z: -0.0015416145}
---- !u!65 &8094081170056657443
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2551159701662017586}
-  m_Material: {fileID: 13400000, guid: 04507828b00407b48841fdc1c6917004, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.04199353, y: 0.29080725, z: 0.03848403}
-  m_Center: {x: -0.0001847893, y: 0.059655547, z: 0}
+  m_Size: {x: 0.26027763, y: 0.3316903, z: 0.029501915}
+  m_Center: {x: 0, y: 0.4376465, z: 0.00035238266}
 --- !u!114 &8094081170056657444
 MonoBehaviour:
   m_ObjectHideFlags: 0

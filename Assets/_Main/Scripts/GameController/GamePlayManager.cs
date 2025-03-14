@@ -19,6 +19,8 @@ public class GamePlayManager : Singleton<GamePlayManager>
     public event Action OnGameDone;
     public event Action OnGamePlay;
 
+    private bool Over;
+
     [SerializeField] MachineShootBall machineShootBall;
 
     [SerializeField] private int lv = 0;
@@ -33,21 +35,16 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
     private void Update()
     {
-        if (isGameEnd)
+        if(Input.GetKeyDown(KeyCode.A))
         {
-            if (ScoreManager.Instance.Score >= 500)
-            {
-                GameWin();
-            }
-            else
-            {
-                GameEnd();
-            }
+            GameWin();
         }
     }
 
     private void StartGame()
     {
+        if (isGameStart) return;
+        Over = false;
         OnGamePlay?.Invoke();
         isGameStart = true;
         StartCoroutine(CountDownTime());
@@ -63,6 +60,15 @@ public class GamePlayManager : Singleton<GamePlayManager>
             UpdateTimePlay();
             if (timePlay <= 0)
             {
+                if (Over) break;
+                if (ScoreManager.Instance.Score >= 500)
+                {
+                    GameWin();
+                }
+                else
+                {
+                    GameEnd();
+                }
                 isGameStart = false;
                 isGameEnd = true;
             }
@@ -82,6 +88,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
     public void GameEnd()
     {
+        Over = true;
         OnGameDone?.Invoke();
         Debug.Log("gameend");
         gameEnd.SetActive(true);
@@ -90,6 +97,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     }
     public void GameWin()
     {
+        Over = true;
         LevelUp();
         Debug.Log("gamewin");
 
@@ -123,8 +131,8 @@ public class GamePlayManager : Singleton<GamePlayManager>
         }
         else
         {
-            khongduenergy.SetActive(true);
             gameEnd.SetActive(false);
+            khongduenergy.SetActive(true);
         }
     }
 }

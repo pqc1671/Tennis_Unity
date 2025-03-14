@@ -4,6 +4,7 @@ public class Ball : MonoBehaviour
 {
     public Rigidbody rb;
     public AudioSource _source;
+    public float bounce;
 
     private void ClearObject()
     {
@@ -17,12 +18,17 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Stick"))
+        if (collision.gameObject.CompareTag("Stick"))
         {
             _source.Play();
-            Vector3 reflectDir = Vector3.Reflect(rb.linearVelocity, collision.contacts[0].normal);
+            ContactPoint contact = collision.contacts[0]; // Lấy điểm va chạm
+            Vector3 normal = contact.normal; // Hướng pháp tuyến
+            Vector3 incomingVelocity = rb.linearVelocity; // Vận tốc ban đầu
 
-            rb.linearVelocity = reflectDir * 0.8f;
+            // Phản chiếu vận tốc theo pháp tuyến
+            Vector3 reflectedVelocity = Vector3.Reflect(incomingVelocity, normal);
+
+            rb.linearVelocity = reflectedVelocity.normalized * bounce; // Cập nhật vận tốc
         }
     }
 
